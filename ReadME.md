@@ -984,7 +984,7 @@ In this step, you will create a systemd unit file to keep your application runni
 
 ```sudo nano /lib/systemd/system/goweb.service```
 
-`
+```
 [Unit]
 Description=goweb
 
@@ -998,7 +998,7 @@ WorkingDirectory=/srv/projetleo/webserver/sandboxlinux
 ExecStart=/srv/projetleo/webserver/sandboxlinux/server
 
 [Install]
-WantedBy=multi-user.target`
+WantedBy=multi-user.target```
 
 ## Solve se linux problems to make the service work
 
