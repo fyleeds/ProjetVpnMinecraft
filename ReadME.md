@@ -998,7 +998,8 @@ WorkingDirectory=/srv/projetleo/webserver/sandboxlinux
 ExecStart=/srv/projetleo/webserver/sandboxlinux/server
 
 [Install]
-WantedBy=multi-user.target```
+WantedBy=multi-user.target
+```
 
 ## Solve se linux problems to make the service work
 
@@ -1025,7 +1026,8 @@ ssl_certificate_key /etc/letsencrypt/live/erwan.fun/privkey.pem;`
 
 ```sudo nano /etc/fail2ban/jail.d/nginx-http-auth.conf```
 
-```[nginx-http-auth]
+```
+[nginx-http-auth]
 enabled = true
 banaction = firewallcmd-ipset
 maxretry = 3
@@ -1033,7 +1035,8 @@ findtime = 60
 bantime = 600
 filter = nginx-http-auth
 logpath = /var/log/nginx/*error.log
-port = https```
+port = https
+```
 
 ```sudo systemctl restart fail2ban```
 
