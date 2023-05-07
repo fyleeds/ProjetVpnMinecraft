@@ -173,24 +173,40 @@ Subsystem       sftp    /usr/libexec/openssh/sftp-server
 #       ForceCommand cvs server
 ```
 
+    
+# Minecraft config server : 
 
-# Partie Erwan : 
+* Prerequisites
+  
+  Have java installed on your machine and download the latest version of the file server.jar.
+   
+  create a folder /srv/projetleo/minecraftserver avec des dossiers backup, serveur_client, servermcbase, et script.
+  
+* Installation instructions
 
-```
-des prérequis (de votre choix)
-des instructions d'installation
-des instructions d'accès
-```
-* Project Organisation ( give directory Tree):
-
+    * Once your server.jar is downloaded, copy it to servermcbase with this command :
+    ``
+     sudo cp /path/to/server.jar /srv/projetleo/minecraftserver/servermcbase/
+    ``
+    
+        then launch the minecraft server to generate the first conf file and the eula
+    ``
+    java -Xmx1024M -Xms1024M -jar server.jar nogui
+    ``
+    
+        the minecraft server will stop automatically because you have to change false to true in the eula 
+        ``
+        sudo nano //srv/projetleo/minecraftserver/servermcbase/eula.txt        
+        ``
+        
 
 * Scripts (add instructions): 
 
-    * génération serveur : 
+    * server generation : 
  
           # !/bin/bash
-            # 21/04/2023
-            # script pour installer et lancer un nouveau server minecraft
+          # 21/04/2023
+          # script pour installer et lancer un nouveau server minecraft
             pseudo=${1}
             port=${2}
             if [[ -z "${1}" || -z "${2}" ]]; then
@@ -239,9 +255,11 @@ des instructions d'accès
 
     screen -ls serveur_de_${1}
     ```
-* Proxy Setup (need explaination)
-* server.properties file setup (need explaination)
+
+
 * Domain Name Buying tutorial 
+    
+    - Go to a site that delivers a domain name, buy one then once on the management interface of your domain name go to dns redirection and put the ip address where you want the domain name to point. 
 
 
 
@@ -928,6 +946,8 @@ You have successfully installed and setup OpenVPN client Rocky Linux 8.
 That brings us to the end of our tutorial on how to install and configure OpenVPN Client on Rocky Linux 8.
 
 # Setup Webserver
+
+
 ## Nginx
 allows to launch the process and configure nginx
 
@@ -977,10 +997,7 @@ In this step, you will create a systemd unit file to keep your application runni
 
 ```cd ~/go-web```
 
-```git clone https://github.com/erxide/sandboxlinux.git```
-
-```go build server.go```
-
+```git clone https://github.com/erxide/site_mc```
 
 ```sudo nano /lib/systemd/system/goweb.service```
 
@@ -1049,10 +1066,15 @@ https://www.digitalocean.com/community/tutorials/how-to-deploy-a-go-web-applicat
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04
 
 Tutorial OpenVpn : 
+    * server : 
+        https://kifarunix.com/install-and-configure-openvpn-client-on-rocky-linux-8/
+    *client : 
+        https://kifarunix.com/setup-openvpn-server-on-rocky-linux-8/
+        
+DN :    
+    www.amen.fr
+    
 
-https://kifarunix.com/install-and-configure-openvpn-client-on-rocky-linux-8/
-https://kifarunix.com/setup-openvpn-server-on-rocky-linux-8/
-https://www.howtoforge.com/how-to-install-and-configure-openvpn-server-on-rocky-linux-9/#step-7---generate-a-client-certificate-and-key-pair
 
 
 
